@@ -34,10 +34,10 @@ ssc install spmap, replace   	// the core package
 ssc install geo2xy, replace		// for projections
 ssc install palettes, replace	// for colors (optional)
 
-*ssc install schemepack, replace  // optional
-*set scheme white_tableau
+ssc install schemepack, replace  // optional
+set scheme white_tableau
 
-graph set window fontface "Arial Narrow"
+graph set window fontface "Arial Narrow"  // because allows to fit more text in smaller space
 help spmap
 
 ****************************
@@ -58,12 +58,17 @@ help spmap
 // Step 3: set up the data  //
 ******************************
 
-cd "D:\Programs\Dropbox\Dropbox\STATA - MEDIUM\Seminars\GIS"
+cd "C:\Users\akreid\Dropbox (Penn)\Stata Maps Webinar\GIS"
 
 dir
 
-spshape2dta WB_countries_Admin0_10m, replace saving(world)
 
+/* read the shapefile and create new .dta files in stata called world */
+spshape2dta WB_countries_Admin0_10m, replace saving(world) // Stata's own spshape2dta command
+
+******************************
+// Note: this is a nice file from World Bank because you can merge with other WB datasets //
+******************************
 
 dir
 
